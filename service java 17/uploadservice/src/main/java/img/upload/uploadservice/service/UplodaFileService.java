@@ -1,5 +1,6 @@
 package img.upload.uploadservice.service;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 
 import org.springframework.core.io.ClassPathResource;
@@ -19,15 +20,17 @@ public class UplodaFileService {
 	private String generateFileName(MultipartFile multipartFile) {
         return System.currentTimeMillis() + "_" + multipartFile.getOriginalFilename().replace(" ", "_");  // tạo tên file
     }
+    String jsonPath = "C:/ay.json";  // đường dẫn tuyệt đối đến file ay.json
 
     public String uploadFile(MultipartFile multipartFile) throws IOException {
+    	
         // sử lý và lấy tên ảnh
         String objectName = generateFileName(multipartFile);
 
         StorageOptions storageOptions = StorageOptions.newBuilder()
                 .setProjectId("my-project")
                 .setCredentials(GoogleCredentials
-                        .fromStream(new ClassPathResource("C://ay.json").getInputStream()))  // file kết nối sdk của bọn google firebase
+                        .fromStream(new  FileInputStream(jsonPath)))  // file kết nối sdk của bọn google firebase
                 .build();
         Storage storage = storageOptions.getService();
         BlobId blobId = BlobId.of("staging.testupload-93817.appspot.com", objectName);
@@ -70,7 +73,7 @@ public class UplodaFileService {
         StorageOptions storageOptions = StorageOptions.newBuilder()
                 .setProjectId("my-project")
                 .setCredentials(GoogleCredentials
-                        .fromStream(new ClassPathResource("ay.json").getInputStream()))  // file kết nối sdk của bọn google firebase
+                        .fromStream(new  FileInputStream(jsonPath)))  // file kết nối sdk của bọn google firebase
                 .build();
         Storage storage = storageOptions.getService();
 
