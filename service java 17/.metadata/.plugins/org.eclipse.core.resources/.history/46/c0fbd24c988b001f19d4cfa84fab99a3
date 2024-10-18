@@ -1,0 +1,9 @@
+package notification.service.notificationservice.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import notification.service.notificationservice.entity.NotificationEntity;
+
+public interface NotificationRepository extends JpaRepository<NotificationEntity, Integer> {
+
+}

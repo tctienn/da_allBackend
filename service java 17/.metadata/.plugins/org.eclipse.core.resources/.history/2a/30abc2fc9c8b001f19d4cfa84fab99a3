@@ -1,0 +1,5 @@
+package notification.service.notificationservice.repository.http_service;
+
+public interface NotificationExpoApp {
+
+}

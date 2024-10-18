@@ -1,0 +1,13 @@
+package grapservice.com.grapservice.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import grapservice.com.grapservice.entity.GrapUserEntity;
+
+public interface GrapUserRepository extends JpaRepository<GrapUserEntity, Integer> {
+
+	Optional<GrapUserEntity> findByGmailAndPassword(String gmail, String password);
+	
+}

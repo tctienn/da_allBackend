@@ -1,0 +1,5 @@
+package grapservice.com.grapservice.DTO;
+
+public class UserLoginDTO {
+
+}

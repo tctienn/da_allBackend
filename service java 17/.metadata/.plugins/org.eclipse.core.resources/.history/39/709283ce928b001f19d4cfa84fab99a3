@@ -1,0 +1,19 @@
+package notification.service.notificationservice.service;
+
+import org.springframework.stereotype.Service;
+
+import notification.service.notificationservice.entity.NotificationEntity;
+
+@Service
+public class NotificationService {
+
+	public String createNotitication(NotificationEntity notificationParam) {
+		
+		
+		
+		return "tạo thông báo thành công";
+		
+	}
+	
+	
+}

@@ -1,0 +1,18 @@
+package grapservice.com.grapservice.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import grapservice.com.grapservice.service.GrapUserService;
+
+@RestController
+@RequestMapping("grapuser")
+public class GrapUserController {
+	
+	@Autowired
+	private GrapUserService grapUserService;
+	
+	
+	
+}

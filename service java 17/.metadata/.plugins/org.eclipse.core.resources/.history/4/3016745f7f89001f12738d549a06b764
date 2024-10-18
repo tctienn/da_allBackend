@@ -1,0 +1,37 @@
+package grapservice.com.grapservice.repository;
+
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import grapservice.com.grapservice.entity.ListInvoiceGrapEntity;
+import java.util.List;
+import java.util.Optional;
+
+
+public interface ListInvoiceGrapRepository extends JpaRepository<ListInvoiceGrapEntity, Integer> {
+	
+	Page<ListInvoiceGrapEntity> findAllByStatus( String status,Pageable page);
+	Optional<ListInvoiceGrapEntity> findBySohd(String sohd);
+	Optional<ListInvoiceGrapEntity> findBySohdAndIdGrap(String sohd,Integer idGrap);
+	
+	
+//	lấy đơn hàng đang giao trong tháng hiện tại
+	@Query(value = "SELECT *\r\n"
+			+ "FROM list_invoice_grap\r\n"
+			+ "WHERE MONTH(time_get) = MONTH(CURRENT_DATE()) \r\n"
+			+ "AND YEAR(time_get) = YEAR(CURRENT_DATE()) \r\n"
+			+ "AND id_grap = :idGrap AND status = :status", nativeQuery = true)
+	List<ListInvoiceGrapEntity> getOderGrapOnMonthByIdGrapAndByStatus(@Param("idGrap") int idGrap, @Param("status") String status);
+	
+//	lấy đơn hàng với trạng thái và idgrap không giới hạn thời gian
+	@Query(value = "SELECT *\r\n"
+			+ "FROM list_invoice_grap\r\n"
+			+ "WHERE  id_grap = :idGrap AND status = :status", nativeQuery = true)
+	List<ListInvoiceGrapEntity> getOderGrapByIdGrapAndByStatus(@Param("idGrap") int idGrap, @Param("status") String status);
+	
+	
+}

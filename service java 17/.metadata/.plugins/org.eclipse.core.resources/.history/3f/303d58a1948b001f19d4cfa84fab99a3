@@ -1,0 +1,35 @@
+package notification.service.notificationservice.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import notification.service.notificationservice.entity.NotificationEntity;
+import notification.service.notificationservice.repository.NotificationRepository;
+
+@Service
+public class NotificationService {
+
+	@Autowired
+	private GetDateData getDateData;
+	@Autowired
+	private GmailService gmailService;
+	
+	@Autowired
+	private NotificationRepository notificationRepository;
+	
+//	trạng thái 1: tạo thông báo , 2 tạo thông báo và gủi gmail status = 0 là public còn status > là id user 
+	public String createNotitication(NotificationEntity notificationParam, String gmail) {
+		
+		if(gmail != null && notificationParam.getStatus()>0)// chỉ tạo báo cáo
+		{
+			gmailService.sendEmail(gmail, notificationParam.getTitle(),notificationParam.getBody() );
+		}
+		
+		notificationParam.setCreateTime(getDateData.getDateNow());
+		notificationRepository.save(notificationParam);
+		return "tạo và gửi    thông báo thành công";
+		
+	}
+	
+	
+}
