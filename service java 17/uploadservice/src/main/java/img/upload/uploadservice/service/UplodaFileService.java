@@ -27,7 +27,7 @@ public class UplodaFileService {
         StorageOptions storageOptions = StorageOptions.newBuilder()
                 .setProjectId("my-project")
                 .setCredentials(GoogleCredentials
-                        .fromStream(new ClassPathResource("ay.json").getInputStream()))  // file kết nối sdk của bọn google firebase
+                        .fromStream(new ClassPathResource("C://ay.json").getInputStream()))  // file kết nối sdk của bọn google firebase
                 .build();
         Storage storage = storageOptions.getService();
         BlobId blobId = BlobId.of("staging.testupload-93817.appspot.com", objectName);
