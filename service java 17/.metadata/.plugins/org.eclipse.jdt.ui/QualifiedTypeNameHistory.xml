@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="grapservice.com.grapservice.entity.ListInvoiceGrapEntity"/>
-    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.ObjectIdGenerators.StringIdGenerator"/>
     <fullyQualifiedTypeName name="grapservice.com.grapservice.repository.http_product_Service.NotificationExpoApp"/>
     <fullyQualifiedTypeName name="grapservice.com.grapservice.DTO.NotificationExpoDTO"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
@@ -41,10 +39,8 @@
     <fullyQualifiedTypeName name="notification.service.notificationservice.NotificationDTO.NotificationExpoDTO"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
-    <fullyQualifiedTypeName name="jakarta.transaction.Transactional"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="grapservice.com.grapservice.entity.GrapUserEntity"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
@@ -53,11 +49,15 @@
     <fullyQualifiedTypeName name="grapservice.com.grapservice.repository.ListInvoiceGrapRepository"/>
     <fullyQualifiedTypeName name="grapservice.com.grapservice.DTO.GroupInvoiceDTO"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
-    <fullyQualifiedTypeName name="org.springframework.kafka.annotation.KafkaListener"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.data.domain.Page"/>
-    <fullyQualifiedTypeName name="notification.service.notificationservice.entity.NotificationEntity"/>
     <fullyQualifiedTypeName name="org.springframework.data.domain.Pageable"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="notification.service.notificationservice.repository.NotificationRepository"/>
+    <fullyQualifiedTypeName name="jakarta.transaction.Transactional"/>
+    <fullyQualifiedTypeName name="notification.service.notificationservice.entity.NotificationEntity"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="org.springframework.kafka.annotation.KafkaListener"/>
+    <fullyQualifiedTypeName name="ql.vn.event.dto.NotificationDTO"/>
+    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
 </qualifiedTypeNameHistroy>

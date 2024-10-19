@@ -1,6 +1,7 @@
 package grapservice.com.grapservice.controller;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import grapservice.com.grapservice.DTO.UserLoginDTO;
 import grapservice.com.grapservice.entity.GrapUserEntity;
+import grapservice.com.grapservice.repository.GrapUserRepository;
 import grapservice.com.grapservice.service.GrapUserService;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -61,6 +63,16 @@ public class GrapUserController {
 	public Page<GrapUserEntity> getAllGrapUserByStatus(@RequestParam String status,Pageable pageable){
 		
 		return grapUserService.getAllUserByStatus(status, pageable);
+		
+	}
+	
+	@Autowired
+	private GrapUserRepository grapUserRepository;
+//	lấy danh sách nhân viên đang hoạt động không phân trang
+	@GetMapping("get-grapUsers")
+	public List<GrapUserEntity> getAllGrapUserworking(){
+		
+		return grapUserRepository.findAll();
 		
 	}
 	@GetMapping("get-grapUsers-byId/{id}")

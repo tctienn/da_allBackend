@@ -34,7 +34,7 @@ public class NotificationController {
 //	@PostMapping("notification-user-grap")
 	@KafkaListener(topics = "notifiacion")
 	public String postMethodName( NotificationDTO notificationDTO) {
-		
+		System.out.println("data notifiacton:"+notificationDTO.getId()+"|"+ notificationDTO.getUser()+"|"+ notificationDTO.getGmail() +"|"+ notificationDTO.getTitle());
 		try {
 			notificationService.createNotitication(notificationDTO);
 			return ("gửi thông báo thành công");
@@ -46,6 +46,8 @@ public class NotificationController {
 	}
 	@KafkaListener(topics = "deleteNotification")
 	public void deleteNotification( NotificationDTO notificationDTO) {
+		System.out.println("data delete:"+notificationDTO.getId()+"|"+ notificationDTO.getUser()+"|"+ notificationDTO.getGmail() +"|"+ notificationDTO.getTitle());
+
 		notificationService.DeleteNotifiaction(notificationDTO);
 	}
 	

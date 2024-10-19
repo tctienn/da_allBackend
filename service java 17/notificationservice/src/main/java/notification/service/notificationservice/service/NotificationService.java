@@ -29,18 +29,21 @@ public class NotificationService {
 	public String createNotitication(NotificationDTO notificationDTO) {
 		NotificationEntity notificationEntity = new NotificationEntity();
 		
-		
+
 		notificationEntity.setBody(notificationDTO.getBody());
 		notificationEntity.setStatus(1);
 		notificationEntity.setUser(notificationDTO.getUser());
 		notificationEntity.setTitle(notificationDTO.getTitle());
 		notificationEntity.setCreateTime(getDateData.getDateNow());
+		
 		notificationRepository.save(notificationEntity);
-		if(notificationDTO.getGmail() != null && notificationDTO.getUser()>0)// gửi gmail
+		if(notificationDTO.getGmail() != null&& notificationDTO.getUser()>0)// gửi gmail
 		{
 			gmailService.sendEmail(notificationDTO.getGmail(), notificationDTO.getTitle(),notificationDTO.getBody()  );
 		}else {
 			NotificationExpoDTO notificationExpoDTO = new NotificationExpoDTO(notificationDTO.getTitle(),notificationDTO.getBody());
+			System.out.println("entiti notification expo"+ notificationDTO.getGmail());
+
 			notificationExpoApp.sendNotificationExpoApp(notificationExpoDTO);
 		}
 		return "tạo và gửi thông báo thành công";

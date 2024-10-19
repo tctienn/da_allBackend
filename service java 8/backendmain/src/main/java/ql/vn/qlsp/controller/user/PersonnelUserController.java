@@ -56,6 +56,17 @@ public class PersonnelUserController {
         }
 
     }
+    @GetMapping("get-usergraps")
+    public ResponseEntity<?> getAllUserGrapByStatus(){
+
+        try {
+            return ResponseEntity.ok(grapServiceHTTP.getAllUser());
+        }catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>("lỗi lấy dánh sách uẻ grap "+ e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+
+    }
 
     @PostMapping("update-status-byidGrap")
     public ResponseEntity<?> updateStatusByIdGrap(@RequestParam Integer idGrap, @RequestParam String status){

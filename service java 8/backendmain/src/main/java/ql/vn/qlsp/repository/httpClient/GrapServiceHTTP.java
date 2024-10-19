@@ -24,6 +24,8 @@ public interface GrapServiceHTTP {
                                   @RequestParam("status") String status);
     @GetMapping(value = "/grapuser/get-grapUsers-byStatus")
     Object getAllUserByStatus(@RequestParam String status , Pageable pageable);
+    @GetMapping(value = "/grapuser/get-grapUsers")
+    Object getAllUser();
 
     @GetMapping (value = "/oder-grap/get-groupInvoice-byUserGrap-month")
     List<Object> groupInvoiceByUserGrapMonth();
